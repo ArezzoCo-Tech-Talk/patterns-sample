@@ -1,0 +1,11 @@
+logging:
+  level:
+    br.com.arezzoco.samples: INFO
+    org.springframework.boot.context: INFO
+
+server:
+  port: 9091
+
+spring:
+  application:
+    name: api-patterns-sample
