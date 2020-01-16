@@ -1,5 +1,8 @@
 package br.com.arezzoco.samples.dto;
 
+import br.com.arezzoco.samples.domain.Adquirente;
+import br.com.arezzoco.samples.domain.FormaPagamento;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -11,13 +14,13 @@ public class PagamentoDTO implements Serializable {
 
     private final BigDecimal valorPago;
     private final Calendar dataPagamento;
-    private final String formaPagamento;
-    private final String adquirente;
+    private final FormaPagamento formaPagamento;
+    private final Adquirente adquirente;
     private final List<CarneDTO> carnes;
     private final List<FaturaDTO> faturas;
 
-    public PagamentoDTO(final BigDecimal valorPago, final Calendar dataPagamento, final String formaPagamento,
-                        final String adquirente, final List<CarneDTO> carnes, final List<FaturaDTO> faturas) {
+    public PagamentoDTO(final BigDecimal valorPago, final Calendar dataPagamento, final FormaPagamento formaPagamento,
+                        final Adquirente adquirente, final List<CarneDTO> carnes, final List<FaturaDTO> faturas) {
         this.valorPago = valorPago;
         this.dataPagamento = dataPagamento;
         this.formaPagamento = formaPagamento;
@@ -34,11 +37,11 @@ public class PagamentoDTO implements Serializable {
         return dataPagamento;
     }
 
-    public String getFormaPagamento() {
+    public FormaPagamento getFormaPagamento() {
         return formaPagamento;
     }
 
-    public String getAdquirente() {
+    public Adquirente getAdquirente() {
         return adquirente;
     }
 

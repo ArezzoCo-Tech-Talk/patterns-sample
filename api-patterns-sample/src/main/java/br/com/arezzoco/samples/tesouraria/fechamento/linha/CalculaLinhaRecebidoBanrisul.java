@@ -1,5 +1,6 @@
 package br.com.arezzoco.samples.tesouraria.fechamento.linha;
 
+import br.com.arezzoco.samples.domain.Adquirente;
 import br.com.arezzoco.samples.dto.PagamentoDTO;
 import org.springframework.stereotype.Component;
 
@@ -22,7 +23,7 @@ class CalculaLinhaRecebidoBanrisul implements CalculaLinha {
                 .ofNullable(pagamentos)
                 .orElseGet(ArrayList::new)
                 .stream()
-                .filter(p -> p.getAdquirente().equals("BANRISUL"))
+                .filter(p -> p.getAdquirente() == Adquirente.BANRISUL)
                 .map(p -> p.getValorPago())
                 .reduce(BigDecimal::add)
                 .orElse(BigDecimal.ZERO);

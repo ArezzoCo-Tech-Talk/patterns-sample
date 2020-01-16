@@ -1,5 +1,7 @@
 package br.com.arezzoco.samples.dto;
 
+import br.com.arezzoco.samples.domain.Processadora;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -13,10 +15,10 @@ public class CarneDTO implements Serializable {
     private final BigDecimal valorTotal;
     private final BigDecimal valorPago;
     private final Calendar dataVencimento;
-    private final String processadora;
+    private final Processadora processadora;
 
     public CarneDTO(final BigDecimal valorJuros, final BigDecimal valorDesconto, final BigDecimal valorTotal,
-                    final BigDecimal valorPago, final Calendar dataVencimento, final String processadora) {
+                    final BigDecimal valorPago, final Calendar dataVencimento, final Processadora processadora) {
         this.valorJuros = valorJuros;
         this.valorDesconto = valorDesconto;
         this.valorTotal = valorTotal;
@@ -45,7 +47,7 @@ public class CarneDTO implements Serializable {
         return dataVencimento;
     }
 
-    public String getProcessadora() {
+    public Processadora getProcessadora() {
         return processadora;
     }
 

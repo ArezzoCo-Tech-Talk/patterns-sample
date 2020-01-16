@@ -20,6 +20,7 @@ public class TesourariaController {
     @Autowired
     private CalculaTesourariaV2Service calculaTesourariaV2Service;
 
+    @Deprecated
     @RequestMapping(method = RequestMethod.POST, value = "/calcular")
     public CalcularTesourariaResponse calcular(@RequestBody final CalcularTesourariaRequest request) {
         return calculaTesourariaService.calcular(request);

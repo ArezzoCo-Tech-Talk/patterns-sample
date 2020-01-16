@@ -12,6 +12,7 @@ public class CalculaTesourariaService {
     Recebe lista de pagamentos para serem calculados linhas de fim de turno.
     Valores serão enviados a um outro sistema.
      */
+    @Deprecated
     public CalcularTesourariaResponse calcular(final CalcularTesourariaRequest request) {
         final CalcularTesourariaResponse response = new CalcularTesourariaResponse();
 
@@ -24,7 +25,7 @@ public class CalculaTesourariaService {
         for (PagamentoDTO pagamento : request.getPagamentos()) {
             linhaTotalRecebido = linhaTotalRecebido.add(pagamento.getValorPago());
 
-            if (pagamento.getAdquirente().equals("BANRISUL")) {
+            if (pagamento.getAdquirente().toString().equals("BANRISUL")) {
                 linhaTotalRecebidoBanrisul = linhaTotalRecebidoBanrisul.add(pagamento.getValorPago());
             }
 
@@ -33,13 +34,13 @@ public class CalculaTesourariaService {
                     linhaTotalRecebidoCarneJuros = linhaTotalRecebidoCarneJuros.add(carne.getValorJuros());
                 }
 
-                if (carne.getProcessadora().equals("PROCESSADORA_B")) {
+                if (carne.getProcessadora().toString().equals("PROCESSADORA_B")) {
                     linhaTotalRecebidoCarneProcessadoraB = linhaTotalRecebidoCarneProcessadoraB.add(carne.getValorPago());
                 }
             }
 
             for (FaturaDTO fatura : pagamento.getFaturas()) {
-                if (fatura.getProcessadora().equals("PROCESSADORA_A")) {
+                if (fatura.getProcessadora().toString().equals("PROCESSADORA_A")) {
                     linhaTotalRecebidoFaturaProcessadoraA = linhaTotalRecebidoFaturaProcessadoraA.add(fatura.getValorPago());
                 }
             }

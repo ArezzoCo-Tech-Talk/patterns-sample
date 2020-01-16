@@ -1,5 +1,6 @@
 package br.com.arezzoco.samples.tesouraria.fechamento.linha;
 
+import br.com.arezzoco.samples.domain.Processadora;
 import br.com.arezzoco.samples.dto.PagamentoDTO;
 import org.springframework.stereotype.Component;
 
@@ -23,7 +24,7 @@ class CalculaLinhaTotalRecebidoFaturaProcessadoraA implements CalculaLinha {
                 .orElseGet(ArrayList::new)
                 .stream()
                 .flatMap(p -> p.getFaturas().stream())
-                .filter(c -> c.getProcessadora().equals("PROCESSADORA_A"))
+                .filter(c -> c.getProcessadora() == Processadora.PROCESSADORA_A)
                 .map(c -> c.getValorPago())
                 .reduce(BigDecimal::add)
                 .orElse(BigDecimal.ZERO);
