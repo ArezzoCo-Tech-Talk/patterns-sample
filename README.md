@@ -28,7 +28,7 @@ fontes.
 ### Exemplos de SOLID com calculos para Tesouraria
 
 - [ ] Aplicar melhorias diversas (em grupo)
-- [ ] Separar as responsabilidades das linhas (Interfaces/Abstrações)
-- [ ] Organizar responsabilidades por pacote (Public, Private, Protected)
+- [x] Separar as responsabilidades das linhas (Interfaces/Abstrações)
+- [x] Organizar responsabilidades por pacote (Public, Private, Protected)
 - [ ] Adicionar calculos de linhas por Site (Factory/Strategy)
 - [ ] Exemplos de reaproveitamento

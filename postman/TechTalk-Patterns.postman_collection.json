@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "78babb4f-0287-4548-956c-6826906519d6",
+		"_postman_id": "b02438bc-31ac-4037-ac91-b48e8283fd7e",
 		"name": "TechTalk-Patterns",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -36,6 +36,43 @@
 					"path": [
 						"tesouraria",
 						"calcular"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Calcular Tesouraria V2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"pagamentos\": [\n\t\t{\n\t\t\t\"valorPago\": \"20.00\",\n\t\t\t\"dataPagamento\": \"2018-03-29T13:34:00.00\",\n\t\t\t\"formaPagamento\": \"DEBITO\",\n\t\t\t\"adquirente\": \"BANRISUL\",\n\t\t\t\"carnes\": [{\n\t\t\t\t\"valorJuros\": \"0.00\",\n\t\t\t\t\"valorDesconto\": \"0.00\",\n\t\t\t\t\"valorTotal\": \"20.00\",\n\t\t\t\t\"valorPago\": \"20.00\",\n\t\t\t\t\"dataVencimento\": \"2018-03-30T13:34:00.00\",\n\t\t\t\t\"processadora\": \"PROCESSADORA_B\"\n\t\t\t}],\n\t\t\t\"faturas\": []\n\t\t},\n\t\t{\n\t\t\t\"valorPago\": \"22.00\",\n\t\t\t\"dataPagamento\": \"2018-03-29T13:34:00.00\",\n\t\t\t\"formaPagamento\": \"DEBITO\",\n\t\t\t\"adquirente\": \"CIELO\",\n\t\t\t\"carnes\": [{\n\t\t\t\t\"valorJuros\": \"2.00\",\n\t\t\t\t\"valorDesconto\": \"0.00\",\n\t\t\t\t\"valorTotal\": \"20.00\",\n\t\t\t\t\"valorPago\": \"20.00\",\n\t\t\t\t\"dataVencimento\": \"2018-03-30T13:34:00.00\",\n\t\t\t\t\"processadora\": \"PROCESSADORA_B\"\n\t\t\t}],\n\t\t\t\"faturas\": []\n\t\t},\n\t\t{\n\t\t\t\"valorPago\": \"26.00\",\n\t\t\t\"dataPagamento\": \"2018-03-29T13:34:00.00\",\n\t\t\t\"formaPagamento\": \"DEBITO\",\n\t\t\t\"adquirente\": \"CIELO\",\n\t\t\t\"carnes\": [{\n\t\t\t\t\"valorJuros\": \"0.00\",\n\t\t\t\t\"valorDesconto\": \"4.00\",\n\t\t\t\t\"valorTotal\": \"26.00\",\n\t\t\t\t\"valorPago\": \"30.00\",\n\t\t\t\t\"dataVencimento\": \"2018-03-30T13:34:00.00\",\n\t\t\t\t\"processadora\": \"PROCESSADORA_B\"\n\t\t\t}],\n\t\t\t\"faturas\": []\n\t\t},\n\t\t{\n\t\t\t\"valorPago\": \"82.00\",\n\t\t\t\"dataPagamento\": \"2018-03-29T13:34:00.00\",\n\t\t\t\"formaPagamento\": \"DEBITO\",\n\t\t\t\"adquirente\": \"GOODCARD\",\n\t\t\t\"carnes\": [],\n\t\t\t\"faturas\": [{\n\t\t\t\t\"processadora\": \"PROCESSADORA_A\",\n\t\t\t\t\"data\": \"2018-03-29T13:34:00.00\",\n\t\t\t\t\"valor\": \"90.00\",\n\t\t\t\t\"valorPago\": \"82.00\"\n\t\t\t}]\n\t\t}]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9091/tesouraria/calcular/v2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9091",
+					"path": [
+						"tesouraria",
+						"calcular",
+						"v2"
 					]
 				}
 			},
