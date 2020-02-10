@@ -1,7 +1,7 @@
 package br.com.arezzoco.samples.service;
 
 import br.com.arezzoco.samples.dto.*;
-import br.com.arezzoco.samples.tesouraria.fechamento.linha.CalculaLinhasStrategy;
+import br.com.arezzoco.samples.tesouraria.fechamento.CalculaLinhaStrategy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 public class CalculaTesourariaV2Service {
 
     @Autowired
-    private CalculaLinhasStrategy calculaLinhasStrategy;
+    private CalculaLinhaStrategy calculaLinhaStrategy;
 
     /*
     Recebe lista de pagamentos para serem calculados linhas de fim de turno.
@@ -20,7 +20,7 @@ public class CalculaTesourariaV2Service {
 
         final CalcularTesourariaResponse response = new CalcularTesourariaResponse();
 
-        response.getLinhas().putAll(calculaLinhasStrategy.calcular(request.getPagamentos()));
+        response.getLinhas().putAll(calculaLinhaStrategy.calcular(request.getSite(), request.getPagamentos()));
 
         // TODO: envia para outro sistema
 

@@ -5,7 +5,10 @@ import br.com.arezzoco.samples.dto.PagamentoDTO;
 import java.math.BigDecimal;
 import java.util.List;
 
-interface CalculaLinha {
+public interface CalculaLinha {
+
     String getCodigo();
+
     BigDecimal calculaValorLinha(final List<PagamentoDTO> pagamentos);
+
 }

@@ -1,7 +1,7 @@
-package br.com.arezzoco.samples.tesouraria.fechamento.linha;
+package br.com.arezzoco.samples.tesouraria.fechamento.linha.arezzo;
 
-import br.com.arezzoco.samples.domain.Adquirente;
 import br.com.arezzoco.samples.dto.PagamentoDTO;
+import br.com.arezzoco.samples.tesouraria.fechamento.linha.CalculaLinhaArezzo;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
@@ -10,11 +10,11 @@ import java.util.List;
 import java.util.Optional;
 
 @Component
-class CalculaLinhaRecebidoBanrisul implements CalculaLinha {
+class CalculaLinhaArezzoTotalRecebido implements CalculaLinhaArezzo {
 
     @Override
     public String getCodigo() {
-        return "R62";
+        return "A38";
     }
 
     @Override
@@ -23,8 +23,7 @@ class CalculaLinhaRecebidoBanrisul implements CalculaLinha {
                 .ofNullable(pagamentos)
                 .orElseGet(ArrayList::new)
                 .stream()
-                .filter(p -> p.getAdquirente() == Adquirente.BANRISUL)
-                .map(p -> p.getValorPago())
+                .map(PagamentoDTO::getValorPago)
                 .reduce(BigDecimal::add)
                 .orElse(BigDecimal.ZERO);
     }

@@ -1,6 +1,9 @@
-package br.com.arezzoco.samples.tesouraria.fechamento.linha;
+package br.com.arezzoco.samples.tesouraria.fechamento.linha.schutz;
 
+import br.com.arezzoco.samples.domain.Processadora;
+import br.com.arezzoco.samples.dto.FaturaDTO;
 import br.com.arezzoco.samples.dto.PagamentoDTO;
+import br.com.arezzoco.samples.tesouraria.fechamento.linha.CalculaLinhaSchutz;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
@@ -9,11 +12,11 @@ import java.util.List;
 import java.util.Optional;
 
 @Component
-class CalculaLinhaTotalRecebidoCarneJuros implements CalculaLinha {
+class CalculaLinhaSchutzTotalRecebidoFaturaProcessadoraA implements CalculaLinhaSchutz {
 
     @Override
     public String getCodigo() {
-        return "R91";
+        return "S28";
     }
 
     @Override
@@ -22,8 +25,9 @@ class CalculaLinhaTotalRecebidoCarneJuros implements CalculaLinha {
                 .ofNullable(pagamentos)
                 .orElseGet(ArrayList::new)
                 .stream()
-                .flatMap(p -> p.getCarnes().stream())
-                .map(c -> c.getValorJuros())
+                .flatMap(p -> p.getFaturas().stream())
+                .filter(c -> c.getProcessadora() == Processadora.PROCESSADORA_A)
+                .map(FaturaDTO::getValorPago)
                 .reduce(BigDecimal::add)
                 .orElse(BigDecimal.ZERO);
     }

@@ -30,5 +30,5 @@ fontes.
 - [x] Aplicar melhorias diversas
 - [x] Separar as responsabilidades das linhas (Interfaces/Abstrações)
 - [x] Organizar responsabilidades por pacote (Public, Private, Protected)
-- [ ] Adicionar calculos de linhas por Site (Factory/Strategy)
+- [x] Adicionar calculos de linhas por Site (Factory/Strategy)
 - [ ] Exemplos de reaproveitamento
